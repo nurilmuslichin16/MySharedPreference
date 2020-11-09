@@ -7,6 +7,7 @@ import android.text.TextUtils
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
+import androidx.core.text.isDigitsOnly
 import kotlinx.android.synthetic.main.activity_form_user_preference.*
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_main.btn_save
@@ -106,7 +107,7 @@ class FormUserPreferenceActivity : AppCompatActivity(), View.OnClickListener {
                 return
             }
 
-            if ((!TextUtils.isDigitsOnly(age))) {
+            if (!age.isDigitsOnly()) {
                 edt_age.error = FIELD_DIGIT_ONLY
                 return
             }
@@ -116,7 +117,7 @@ class FormUserPreferenceActivity : AppCompatActivity(), View.OnClickListener {
                 return
             }
 
-            if ((!TextUtils.isDigitsOnly(phone))) {
+            if (!phone.isDigitsOnly()) {
                 edt_phone.error = FIELD_DIGIT_ONLY
                 return
             }
